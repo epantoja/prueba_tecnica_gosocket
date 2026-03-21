@@ -17,6 +17,6 @@ El microservicio está configurado para emitir eventos `RequestCreated`.
 ## Cómo ejecutar localmente
 1. Clonar el repositorio.
 2. Asegurarse de tener instalado el SDK de **.NET 8**.
-3. En la terminal, situarse en la carpeta del proyecto y ejecutar:
+3. En la terminal, situarse en la carpeta del proyecto MyMicroservice.Api y ejecutar:
    ```bash
    dotnet run
