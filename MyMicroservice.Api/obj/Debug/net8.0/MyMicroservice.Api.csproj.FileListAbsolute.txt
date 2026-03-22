@@ -43,3 +43,4 @@
 /Users/erwinpantojaespana/Documents/Proyectos/PruebaTecnica/MyMicroservice.Api/obj/Debug/net8.0/MyMicroservice.Api.pdb
 /Users/erwinpantojaespana/Documents/Proyectos/PruebaTecnica/MyMicroservice.Api/obj/Debug/net8.0/MyMicroservice.Api.genruntimeconfig.cache
 /Users/erwinpantojaespana/Documents/Proyectos/PruebaTecnica/MyMicroservice.Api/obj/Debug/net8.0/ref/MyMicroservice.Api.dll
+/Users/erwinpantojaespana/Documents/Proyectos/PruebaTecnica/MyMicroservice.Api/obj/Debug/net8.0/MyMicroservice.Api.sourcelink.json
