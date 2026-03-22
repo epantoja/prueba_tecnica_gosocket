@@ -5,7 +5,7 @@ Implementación de un microservicio microservicio en .NET 8 que permita gestiona
 procesamiento de creación y consulta de solicitudes con integración asíncrona a Azure Service Bus.
 
 ## Decisiones Técnicas
-- **Arquitectura:** APIs en .NET 8 para un servicio ligero y robusto.
+- **Arquitectura:** Minimal APIs en .NET 8 para un servicio ligero y robusto.
 - **Persistencia:** Entity Framework Core con base de datos **InMemory** para facilitar la ejecución inmediata sin dependencias externas, pero de manera opcional se implemnto la persintencia en **Postgresql** base de datos relacional, todo esto para garantizar que los datos persistan localmente de forma segura, y no sean temporales como en **InMemory**.
 - **Mensajería:** Integración con **Azure Service Bus (Queues)** para notificaciones asíncronas.
 - **Validación:** Se implementó una lógica de control manual al inicio del endpoint para asegurar que campos obligatorios como Name y Payload sean requeridos. El sistema garantiza una respuesta 400 Bad Request con un mensaje descriptivo si la información es incompleta, manteniendo la integridad de la base de datos.
