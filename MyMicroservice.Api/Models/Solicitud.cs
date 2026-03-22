@@ -6,7 +6,7 @@ public class Solicitud {
     [Key]
     public Guid Id { get; set; }
 
-    [Required] // EF validará esto antes de guardar
+    [Required] 
     public string Name { get; set; } = string.Empty; 
 
     [Required]

@@ -6,10 +6,13 @@ using System.Linq;
 using MyMicroservice.Api.Context;
 using MyMicroservice.Api.Models;
 using MyMicroservice.Api.Dto;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("SolicitudesDb"));
+//builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("SolicitudesDb"));
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection")));
 
 builder.Services.AddSingleton(sp => 
 {
@@ -42,7 +45,7 @@ app.UseHttpsRedirection();
 Crear solicitud
 */ 
 app.MapPost("/api/v1/requests", async (RequestInputDto dto, AppDbContext db, ServiceBusClient busClient, IConfiguration config) =>
-{
+{   
     if (dto == null || string.IsNullOrWhiteSpace(dto.Name) || string.IsNullOrWhiteSpace(dto.Payload))
     {
         return Results.BadRequest(new { error = "El nombre y el payload son obligatorios." });
@@ -71,7 +74,6 @@ app.MapPost("/api/v1/requests", async (RequestInputDto dto, AppDbContext db, Ser
         var message = new ServiceBusMessage(messageBody);
 
         await sender.SendMessageAsync(message);
-        Console.WriteLine(">>> Mensaje enviado a Azure exitosamente.");
     }
     catch (Exception ex) {
         Console.WriteLine($">>> Error con Azure: {ex.Message}");
