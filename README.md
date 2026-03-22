@@ -15,14 +15,14 @@ procesamiento de creación y consulta de solicitudes con integración asíncrona
 El microservicio está configurado para emitir eventos `RequestCreated`. 
 > **Nota:** Debido a restricciones temporales en la activación del Tenant de Azure (Error de actividad inusual en Microsoft ID), la integración se entrega configurada y validada a nivel de código, pero requiere una `ConnectionString` válida en el archivo `appsettings.json` para el envío real de mensajes. El sistema cuenta con manejo de excepciones para garantizar que la persistencia en DB funcione independientemente del estado del bus de mensajes.
 
-## Cómo ejecutar localmente
+## Requisitos
+- SDK de .NET 8
+- Postman o acceso a Swagger (incluido)
+
+### Cómo ejecutar localmente
 1. Clonar el repositorio.
 2. Asegurarse de tener instalado el SDK de **.NET 8**.
 3. En la terminal, situarse en la carpeta del proyecto MyMicroservice.Api y ejecutar:
-
-### Requisitos
-- SDK de .NET 8
-- Postman o acceso a Swagger (incluido)
 
 ### Ejecución
 1. Sitúate en la carpeta raíz del proyecto:
