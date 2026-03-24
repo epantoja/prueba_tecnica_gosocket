@@ -12,16 +12,16 @@ procesamiento de creación y consulta de solicitudes con integración asíncrona
 - **Concurrencia:** Implementación de patrones `async/await` para que el servicio sea totalmente **No Bloqueante**, esto se aplica en todos los metodos.
 
 ## Nota:
-- **Modificar linea de código:**: Si en el ambiente local donde se va correr el servicio no esta instalado **Postgresql**, podemos modificar el codigo de la siguiente forma.
+- **Modificar linea de código:** Si en el ambiente local donde se va correr el servicio no esta instalado **Postgresql**, podemos modificar el codigo de la siguiente forma.
 
-Comentar esta linea de codigo
+Comentar esta linea de código
 -  ```bash
-   builder.Services.AddDbContext<AppDbContext>(options =>
-      options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection")));
+   //builder.Services.AddDbContext<AppDbContext>(options =>
+   //   options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection")));
 
-Descomentar esta linea de codigo
+Descomentar esta linea de código
 -  ```bash
-   //builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("SolicitudesDb"));
+   builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("SolicitudesDb"));
 
 
 ## Integración con Azure (Nota Importante)
