@@ -61,3 +61,6 @@ El microservicio está configurado para emitir eventos `RequestCreated`.
 2. Correr proyecto
    ```bash
    dotnet run
+3. Ingresar a esta Url
+   ```bash
+   http://localhost:5056/swagger/index.html

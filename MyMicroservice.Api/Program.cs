@@ -11,11 +11,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL;
 var builder = WebApplication.CreateBuilder(args);
 
 //conexion a InMemory.
-//builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("SolicitudesDb"));
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("SolicitudesDb"));
 
 //conexion a posgresql
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection")));
+//builder.Services.AddDbContext<AppDbContext>(options =>
+//    options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection")));
 
 builder.Services.AddSingleton(sp => 
 {
