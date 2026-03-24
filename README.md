@@ -11,6 +11,19 @@ procesamiento de creación y consulta de solicitudes con integración asíncrona
 - **Validación:** Se implementó una lógica de control manual al inicio del endpoint para asegurar que campos obligatorios como Name y Payload sean requeridos. El sistema garantiza una respuesta 400 Bad Request con un mensaje descriptivo si la información es incompleta, manteniendo la integridad de la base de datos.
 - **Concurrencia:** Implementación de patrones `async/await` para que el servicio sea totalmente **No Bloqueante**, esto se aplica en todos los metodos.
 
+## Nota:
+- **Modificar linea de código:**: Si en el ambiente local donde se va correr el servicio no esta instalado **Postgresql**, podemos modificar el codigo de la siguiente forma.
+
+Comentar esta linea de codigo
+-  ```bash
+   builder.Services.AddDbContext<AppDbContext>(options =>
+      options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreConnection")));
+
+Descomentar esta linea de codigo
+-  ```bash
+   //builder.Services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("SolicitudesDb"));
+
+
 ## Integración con Azure (Nota Importante)
 El microservicio está configurado para emitir eventos `RequestCreated`. 
 > **Nota:** Debido a restricciones temporales en la activación del Tenant de Azure (Error de actividad inusual en Microsoft ID), la integración se entrega configurada y validada a nivel de código, pero requiere una `ConnectionString` válida en el archivo `appsettings.json` para el envío real de mensajes. El sistema cuenta con manejo de excepciones para garantizar que la persistencia en DB funcione independientemente del estado del bus de mensajes.
